@@ -1,0 +1,22 @@
+{
+  "name": "rollup-plugin-vue-jsx",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "example": "npm run build && rollup -c example/rollup.config.js",
+    "build": "ts-node scripts/build"
+  },
+  "devDependencies": {
+    "@types/node": "^14.11.1",
+    "esbuild": "^0.7.1",
+    "rollup": "^2.23.0",
+    "rollup-plugin-dts": "^1.4.13",
+    "rollup-plugin-esbuild": "^2.5.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "@rollup/pluginutils": "^4.0.0"
+  }
+}
