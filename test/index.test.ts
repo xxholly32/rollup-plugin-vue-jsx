@@ -1,7 +1,8 @@
 import { rollup } from "rollup";
 import mockfs from "mock-fs";
 import esbuild from "rollup-plugin-esbuild";
-import vueJsx, { Options } from "../src";
+import vueJsx from "../src";
+import { Options } from "../src/dts";
 
 const build = async (
   options?: Options,

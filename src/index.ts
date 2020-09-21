@@ -6,7 +6,7 @@ import { Options } from "./dts";
 export default (options: Options = {}): Plugin => {
   options = Object.assign(
     {
-      jsxCompatPath: join(__dirname, "../src/vue-jsx-compat.ts"),
+      jsxCompatPath: join(__dirname, "../src/vue-jsx-compat.js"),
       jsxFactory: "vueJsxCompat",
     },
     options

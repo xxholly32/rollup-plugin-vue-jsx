@@ -2,21 +2,20 @@
 
 work with [rollup-plugin-esbuild](https://github.com/egoist/rollup-plugin-esbuild)， and just for vue-jsx
 
-
 change `foo.tsx`
 
 ```js
 export default class Foo {
   render() {
-    return <div className="hehe">hello there!!!</div>
+    return <div className="hehe">hello there!!!</div>;
   }
 }
 ```
 
-to 
+to
 
 ```js
-import { createVNode, isVNode } from 'vue';
+import { createVNode, isVNode } from "vue";
 
 const slice = Array.prototype.slice;
 function vueJsxCompat(tag, props = null, children = null) {
@@ -28,18 +27,22 @@ function vueJsxCompat(tag, props = null, children = null) {
 
 class Foo {
   render() {
-    return /* @__PURE__ */ vueJsxCompat("div", {
-      className: "hehe"
-    }, "hello there!!!");
+    return /* @__PURE__ */ vueJsxCompat(
+      "div",
+      {
+        className: "hehe",
+      },
+      "hello there!!!"
+    );
   }
 }
 ```
 
-add [vue-jsx-compat](https://github.com/xxholly32/rollup-plugin-vue-jsx/blob/master/src/vue-jsx-compat.ts)
+add [vue-jsx-compat](https://github.com/xxholly32/rollup-plugin-vue-jsx/blob/master/src/vue-jsx-compat.ts) to transform vue-jsx
 
 ## how to use
 
-``` js
+```js
 import vueJsx from "rollup-plugin-vue-jsx-compat"
 import esbuild from "rollup-plugin-esbuild";
 
@@ -54,13 +57,13 @@ export default {
 };
 ```
 
-or you can add your config 
+or you can add your config
 
 ```js
 vueJsx({
   // it only use same function name with esbuild
   jsxFactory: "vueJsxCompat",
   // if you not use default vus-jsx-transformer, you write your own file path in here
-  path: ""
-})
+  path: "",
+});
 ```
