@@ -1,18 +1,28 @@
 {
-  "name": "rollup-plugin-vue-jsx",
-  "version": "1.0.0",
+  "name": "rollup-plugin-vue-jsx-compat",
+  "version": "0.0.0",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "scripts": {
+    "test": "jest",
     "example": "npm run build && rollup -c example/rollup.config.js",
-    "build": "ts-node scripts/build"
+    "build": "ts-node scripts/build",
+    "release": "standard-version && npm run cz:changelog",
+    "cz:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
   },
   "devDependencies": {
+    "@types/mock-fs": "^4.10.0",
     "@types/node": "^14.11.1",
+    "conventional-changelog-cli": "^2.1.0",
     "esbuild": "^0.7.1",
+    "jest": "^26.4.2",
+    "mock-fs": "^4.13.0",
     "rollup": "^2.23.0",
     "rollup-plugin-dts": "^1.4.13",
     "rollup-plugin-esbuild": "^2.5.0",
+    "standard-version": "^9.0.0",
+    "ts-jest": "^26.4.0",
     "ts-node": "^9.0.0",
     "typescript": "^3.9.7"
   },

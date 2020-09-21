@@ -1,16 +1,16 @@
-const vueJsx = require('../dist/index')
-import esbuild from "rollup-plugin-esbuild";
+const vueJsx = require("../dist/index");
+const esbuild = require("rollup-plugin-esbuild");
 
 export default {
-  input: 'example/index.js',
+  input: "example/index.js",
   output: {
-    file: 'example/dist/index.js',
-    format: 'cjs',
+    file: "example/dist/index.js",
+    format: "esm",
   },
   plugins: [
     vueJsx(),
     esbuild({
-      jsxFactory: "vueJsxCompat"
+      jsxFactory: "vueJsxCompat",
     }),
   ],
-}
+};

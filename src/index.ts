@@ -1,16 +1,17 @@
-import { resolve, dirname, join } from "path";
+import { join } from "path";
 import { Plugin } from "rollup";
-import { createFilter, FilterPattern } from "@rollup/pluginutils";
-import fs from "fs";
-
-export type Options = {
-  include?: FilterPattern;
-  exclude?: FilterPattern;
-};
+import { createFilter } from "@rollup/pluginutils";
+import { Options } from "./dts";
 
 export default (options: Options = {}): Plugin => {
-  const vueJsxPublicPath = "vue-jsx";
-  const vueJsxFilePath = "./vue-jsx-compat.ts";
+  options = Object.assign(
+    {
+      jsxCompatPath: join(__dirname, "../src/vue-jsx-compat.ts"),
+      jsxFactory: "vueJsxCompat",
+    },
+    options
+  );
+  console.log(options.jsxCompatPath);
 
   const filter = createFilter(options.include, options.exclude);
 
@@ -21,16 +22,10 @@ export default (options: Options = {}): Plugin => {
       if (!filter(id)) return;
 
       if (id.endsWith("x")) {
-        code += `\nimport { vueJsxCompat } from '${join(
-          __dirname,
-          "../src/vue-jsx-compat.ts"
-        )}'`;
+        code += `\nimport { ${options.jsxFactory} } from '${options.jsxCompatPath}'`;
       }
 
-      return {
-        code: code,
-        map: null,
-      };
+      return code;
     },
   };
 };
