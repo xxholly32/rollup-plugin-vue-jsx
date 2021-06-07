@@ -11,7 +11,6 @@ export default (options: Options = {}): Plugin => {
     },
     options
   );
-  console.log(options.jsxCompatPath);
 
   const filter = createFilter(options.include, options.exclude);
 
