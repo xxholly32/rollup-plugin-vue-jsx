@@ -1,5 +1,5 @@
-import { FilterPattern } from "@rollup/pluginutils";
-import { Plugin } from "rollup";
+import { FilterPattern } from '@rollup/pluginutils';
+import { Plugin } from 'rollup';
 
 export type Options = {
   include?: FilterPattern;
@@ -8,6 +8,6 @@ export type Options = {
   jsxCompatPath?: string;
 };
 
-declare function vueJsx(options: Options): Plugin;
+declare const vueJsx: (options: Options) => Plugin;
 
 export default vueJsx;
