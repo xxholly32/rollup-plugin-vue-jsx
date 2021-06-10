@@ -8,6 +8,6 @@ export type Options = {
   jsxCompatPath?: string;
 };
 
-declare const vueJsx: (options: Options) => Plugin;
+declare function vueJsx(options: Options): Plugin;
 
 export default vueJsx;

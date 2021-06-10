@@ -1,4 +1,4 @@
-import { join } from "path";
+import { resolve } from "path";
 import { Plugin } from "rollup";
 import { createFilter } from "@rollup/pluginutils";
 import { Options } from "./dts";
@@ -6,7 +6,7 @@ import { Options } from "./dts";
 export default (options: Options = {}): Plugin => {
   options = Object.assign(
     {
-      jsxCompatPath: join(__dirname, "../src/vue-jsx-compat.js"),
+      jsxCompatPath: resolve(__dirname, "../src/vue-jsx-compat.js"),
       jsxFactory: "vueJsxCompat",
     },
     options
@@ -21,7 +21,7 @@ export default (options: Options = {}): Plugin => {
       if (!filter(id)) return;
 
       if (id.endsWith("x")) {
-        code += `\nimport { ${options.jsxFactory} } from '${options.jsxCompatPath}'`;
+        code += `\nimport { ${options.jsxFactory} } from '${options.jsxCompatPath?.replace(/\\/g, '/')}'`;
       }
 
       return code;
