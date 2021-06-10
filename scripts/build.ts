@@ -14,7 +14,18 @@ async function main() {
     const bundle = await rollup({
       input: "./src/index.ts",
       external,
-      plugins: [esbuild()],
+      plugins: [esbuild({
+        include: /\.[jt]sx?$/, // default, inferred from `loaders` option
+        loaders: {
+          // Add .json files support
+          // require @rollup/plugin-commonjs
+          '.json': 'json',
+          // Enable JSX in .js files too
+          '.js': 'jsx',
+          // Enable JSX in .js files too
+          '.tsx': 'tsx',
+        },
+      })],
     });
 
     await bundle.write({ file: "./dist/index.js", format: "cjs" });
@@ -23,6 +34,7 @@ async function main() {
   async function createDtsFile() {
     const bundle = await rollup({
       input: "./src/dts.ts",
+      // https://github.com/Swatinem/rollup-plugin-dts/issues/120#issuecomment-711754551
       external,
       plugins: [dts()],
     });
