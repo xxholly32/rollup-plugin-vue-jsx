@@ -38,7 +38,7 @@ class Foo {
 }
 ```
 
-add [vue-jsx-compat](https://github.com/xxholly32/rollup-plugin-vue-jsx/blob/master/src/vue-jsx-compat.ts) to transform vue-jsx
+add [vue-jsx-compat](https://github.com/xxholly32/rollup-plugin-vue-jsx/blob/master/src/vue-jsx-compat.js) to transform vue-jsx
 
 ## how to use
 
@@ -64,6 +64,6 @@ vueJsx({
   // it only use same function name with esbuild
   jsxFactory: "vueJsxCompat",
   // if you not use default vus-jsx-transformer, you write your own file path in here
-  path: "",
+  path: "you file path",
 });
 ```
