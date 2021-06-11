@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/xxholly32/rollup-plugin-vue-jsx/compare/v0.0.5...v0.0.6) (2021-06-11)
+
+
+### Features
+
+* 🎸 update dependencies ([bd8bad1](https://github.com/xxholly32/rollup-plugin-vue-jsx/commit/bd8bad1748c913188a1ee65f1fcc9f6eb84d7bf0))
+
 ### [0.0.5](https://github.com/xxholly32/rollup-plugin-vue-jsx/compare/v0.0.4...v0.0.5) (2021-06-07)
 
 ### [0.0.4](https://github.com/xxholly32/rollup-plugin-vue-jsx/compare/v0.0.3...v0.0.4) (2021-06-07)
